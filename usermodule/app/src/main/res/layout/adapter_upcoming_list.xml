@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.handlUser.app.utils.Const" />
+
+        <variable
+            name="data"
+            type="com.handlUser.app.model.AppointmentData" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/addRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="@color/White"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userIV"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@mipmap/ic_default" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bookingTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/statusTV"
+            android:layout_toEndOf="@+id/userIV"
+            android:text="@{@string/booking_id+data.id}"
+            android:textColor="@color/verify_grey" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/statusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_toStartOf="@+id/nextIV"
+            android:textColor="@color/blue_color" />
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookingTV"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/nextIV"
+            android:layout_toEndOf="@+id/userIV"
+            android:text="@{data.userService.subcategoryName}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTV"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/nextIV"
+            android:layout_toEndOf="@+id/userIV"
+            android:text="@{data.provider.fullName}"
+            android:textColor="@color/dark_blue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTV"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/nextIV"
+            android:layout_toEndOf="@+id/userIV"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_11ssp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nextIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_navigate_next"
+            android:tint="@color/blue_color" />
+
+    </RelativeLayout>
+
+
+</layout>

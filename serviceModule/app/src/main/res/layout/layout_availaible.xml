@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/screen_bg">
+
+
+        <LinearLayout
+            android:id="@+id/layoutLL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/descTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_20sdp"
+                android:textColor="@color/sub_sentence_color" />
+
+            <LinearLayout
+                android:id="@+id/availLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@color/White"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_30sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/White"
+                    android:elevation="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    app:fontFamily="@font/lato_semibold"
+                    android:text="@string/availability"
+                    android:textColor="@color/sentence_color"
+                    app:textAllCaps="true"
+                    tools:targetApi="lollipop" />
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/offlineCB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_70sdp"
+                    android:background="@color/White"
+                    android:button="@drawable/offline_check"
+                    android:clickable="false"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/offline"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_13ssp"
+                    tools:targetApi="m" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/availableCB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_70sdp"
+                        android:background="@color/White"
+                        android:button="@drawable/online_check"
+                        android:clickable="false"
+                        android:fontFamily="@font/lato_regular"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/available_in"
+                        android:textColor="@color/sub_sentence_color"
+                        android:textSize="@dimen/_13ssp"
+                        tools:targetApi="m" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/hourTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/availableCB"
+                        android:background="@drawable/grey_button"
+                        android:drawableEnd="@drawable/ccp_ic_arrow_drop_down"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableTint="@color/sub_sentence_color"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:textColor="@color/sub_sentence_color"
+                        tools:targetApi="m" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/crossIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@mipmap/ic_cross_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

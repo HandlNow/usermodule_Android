@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/agreeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Pick the time slots you want to make a request to Jo for at her calendar"
+            android:textColor="@color/dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/calendarTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:fontFamily="@font/lato_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Jo's Calendar"
+            android:textColor="@color/dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/agreeTV" />
+
+
+        <com.alamkanak.weekview.WeekView
+            android:id="@+id/weekView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:adaptiveEventTextSize="true"
+            app:allDayEventTextSize="@dimen/_12sp"
+            app:columnGap="@dimen/_1sdp"
+            app:dayBackgroundColor="@color/daycolor"
+            app:daySeparatorColor="@color/White"
+            app:daySeparatorStrokeWidth="@dimen/_3dp"
+            app:defaultEventColor="@color/chart_color"
+            app:eventTextColor="@color/White"
+            app:headerBackgroundColor="@color/White"
+            app:headerPadding="@dimen/_12dp"
+            app:hourHeight="@dimen/_35sdp"
+            app:hourSeparatorColor="@color/White"
+            app:hourSeparatorStrokeWidth="@dimen/_3dp"
+            app:layout_constraintBottom_toTopOf="@+id/rebookTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendarTV"
+            app:numberOfVisibleDays="7"
+            app:overlappingEventGap="@dimen/_2dp"
+            app:showCompleteDay="false"
+            app:showCurrentTimeFirst="true"
+            app:showHeaderBottomLine="true"
+            app:showTimeColumnSeparator="true"
+            app:singleDayHorizontalPadding="@dimen/_8dp"
+            app:timeColumnBackgroundColor="@color/White"
+            app:timeColumnPadding="@dimen/_8dp"
+            app:timeColumnSeparatorStrokeWidth="@dimen/_1dp"
+            app:timeColumnTextColor="@color/Gray"
+            app:timeColumnTextSize="@dimen/_12sp"
+            app:todayBackgroundColor="@color/daycolor"
+            app:todayHeaderTextColor="@color/dark_blue"
+
+            />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rebookTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="Request"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/agreeTV"
+            app:layout_constraintStart_toStartOf="@+id/agreeTV" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

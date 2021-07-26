@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/screen_bg">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideG"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/howManyTV"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:text="@string/how_many"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintStart_toEndOf="@+id/guideG"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/whatPetTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:text="@string/what_pet"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toStartOf="@+id/guideG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/quesTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/dark_blue_stroke"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:text="Big Dog"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintBottom_toBottomOf="@+id/ansTV"
+            app:layout_constraintEnd_toStartOf="@+id/guideG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ansTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ansTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/dark_blue_stroke"
+            android:drawableEnd="@drawable/ic_down_arrow"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/lato_regular"
+            android:paddingVertical="@dimen/_2sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:singleLine="true"
+            android:text="0"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintStart_toEndOf="@+id/guideG"
+            app:layout_constraintTop_toBottomOf="@+id/howManyTV" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/what_services_will_you_need"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ansTV" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/petWalkingTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:text="@string/pet_sitting"
+            android:textColor="@color/sub_sentence_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionTV" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/ansCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/petWalkingTV"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/guideG"
+            app:layout_constraintTop_toBottomOf="@+id/questionTV"
+            app:layout_constraintTop_toTopOf="@+id/petWalkingTV" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

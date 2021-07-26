@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toTopOf="@+id/requestButtonCL"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/mapIV"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <fragment
+                            android:id="@+id/mapV"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/markerIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_pin_red"
+                            android:visibility="gone" />
+                    </FrameLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/expandTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_down_arrow"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.baoyachi.stepview.HorizontalStepView
+                        android:id="@+id/progressCL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:animateLayoutChanges="true"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mapIV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/catNameTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_16ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressCL" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/timeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:text="@string/confirmed_task"
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/catNameTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dateTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_calender_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/timeTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/slotTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_time_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/dateTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/addressTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_location_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/slotTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/servicesTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_listing_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/addressTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/requirementTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_msg_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/special_requests"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/servicesTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reqTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:drawableStart="@mipmap/ic_msg_book"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableTint="@color/screen_bg"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageCL"
+                        app:layout_constraintStart_toStartOf="@+id/catNameTV"
+                        app:layout_constraintTop_toBottomOf="@+id/requirementTV"
+                        tools:targetApi="m" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/imageCL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/catNameTV">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/userIV"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:src="@mipmap/ic_default"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/nameTV"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Kyveli"
+                            android:textColor="@color/light_blue"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/userIV" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/requestButtonCL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/reqCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/onMyWayTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/light_blue_stroke"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/on_my_way"
+                        android:textColor="@color/dark_blue"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/seeLocationTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/light_blue_stroke"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/see_location"
+                        android:textColor="@color/dark_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/chatTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/light_blue_stroke"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/chat"
+                        android:textColor="@color/dark_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/terminateTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/light_blue_stroke"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/terminate_service"
+                        android:textColor="@color/dark_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/progressTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/light_blue_stroke"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/track_progress"
+                        android:textColor="@color/dark_blue"
+                        android:visibility="gone" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cancelTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/grey_button"
+                        android:gravity="center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/cancel"
+                        android:textColor="@color/White" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rejectedTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/grey_button"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/rejected"
+                        android:textColor="@color/White"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cancelledTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/grey_button"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_20sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:text="@string/cancelled"
+                        android:textColor="@color/White"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>

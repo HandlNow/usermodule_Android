@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/rootRL"
+            android:layout_width="match_parent"
+            android:background="@color/screen_bg"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/appbarTB"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarTB"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/White">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/backIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@mipmap/ic_back_arw"
+                        android:tint="@color/White"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/titleTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/lato_semibold"
+                        android:gravity="center|start"
+                        android:textColor="@color/dark_blue_color"
+                        android:textSize="@dimen/_13ssp" />
+                </androidx.appcompat.widget.Toolbar>
+            </androidx.cardview.widget.CardView>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/appbarTB"
+                android:background="@color/White" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/White"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_blue"
+                android:orientation="vertical"
+                android:padding="@dimen/_10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePicCIV"
+                    android:layout_width="@dimen/_70dp"
+                    android:layout_height="@dimen/_70dp"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:src="@drawable/profie_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/profilePicCIV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/profilePicCIV"
+                    app:layout_constraintTop_toTopOf="@+id/profilePicCIV">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/nameTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_18sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/ratingTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_star"
+                        android:drawablePadding="@dimen/_3sdp"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_18sp" />
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ListView
+                android:id="@+id/drawerLV"
+                android:layout_width="match_parent"
+                android:divider="@null"
+                android:background="@color/screen_bg"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

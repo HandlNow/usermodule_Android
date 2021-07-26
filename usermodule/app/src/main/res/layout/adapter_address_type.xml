@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/screen_bg">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/homeET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/White"
+            android:drawableStart="@drawable/ic_home_grey"
+            android:drawablePadding="@dimen/_5sdp"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="start|center"
+            android:longClickable="false"
+            android:padding="@dimen/_5sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:text="Home"
+            android:textColor="@color/sentence_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="m" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

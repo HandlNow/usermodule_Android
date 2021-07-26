@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlService.app.utils.ClickHandler" />
+
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/screen_bg">
+
+            <RelativeLayout
+                android:id="@+id/dialogRL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <RelativeLayout
+                    android:id="@+id/layoutToolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <include
+                        android:id="@+id/toolI"
+                        layout="@layout/layout_home_drawer" />
+
+                </RelativeLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutRL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutToolBar">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/newTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:text="@string/appointments"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RelativeLayout
+                        android:id="@+id/linearLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_25sdp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/newTV">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/noAppTV"
+                            android:background="@color/White"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:padding="@dimen/_10sdp" />
+
+                        <LinearLayout
+                            android:id="@+id/newLL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                            android:orientation="vertical">
+
+                            <include
+                                android:id="@+id/newI"
+                                layout="@layout/layout_new_appointment" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/requestTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:text="@string/new_requests"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLL" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/countTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/background_red"
+                        android:backgroundTint="@color/Red"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_4sdp"
+                        android:textColor="@color/White"
+                        app:layout_constraintStart_toEndOf="@id/requestTV"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLL" />
+
+                    <LinearLayout
+                        android:id="@+id/reqLL"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="@+id/linearLL"
+                        app:layout_constraintStart_toStartOf="@+id/linearLL"
+                        app:layout_constraintTop_toBottomOf="@+id/requestTV">
+
+                        <include
+                            android:id="@+id/reqI"
+                            layout="@layout/adapter_appointment" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/leftIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/white_button"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:rotation="180"
+                        android:src="@drawable/ic_navigate_next"
+                        app:layout_constraintBottom_toBottomOf="@+id/reqLL"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reqLL" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/rightIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/white_button"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:src="@drawable/ic_navigate_next"
+                        app:layout_constraintBottom_toBottomOf="@+id/reqLL"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reqLL" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/Black"
+                app:layout_constraintBottom_toBottomOf="@+id/calendarLL"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/calendarLL" />
+
+
+            <LinearLayout
+                android:id="@+id/calendarLL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/screen_bg"
+                android:elevation="@dimen/_2sdp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dialogRL"
+                tools:targetApi="lollipop">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dayViewTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:drawableStart="@mipmap/ic_today"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    android:padding="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/day"
+                    android:textAllCaps="true"
+                    android:textColor="@color/sub_sentence_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weekViewTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:drawableStart="@mipmap/ic_week"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    android:padding="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/week"
+                    android:textAllCaps="true"
+                    android:textColor="@color/sub_sentence_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/monthViewTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:drawableStart="@mipmap/ic_month"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    android:padding="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="@string/month"
+                    android:textAllCaps="true"
+                    android:textColor="@color/sub_sentence_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendarLL"
+                tools:targetApi="lollipop">
+
+                <com.alamkanak.weekview.WeekView
+                    android:id="@+id/weekView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    app:adaptiveEventTextSize="true"
+                    app:allDayEventTextSize="@dimen/_12sp"
+                    app:columnGap="@dimen/_1sdp"
+                    app:dayBackgroundColor="@color/daycolor"
+                    app:daySeparatorColor="@color/White"
+                    app:daySeparatorStrokeWidth="@dimen/_5dp"
+                    app:defaultEventColor="@color/chart_color"
+                    app:eventCornerRadius="0dp"
+                    app:eventTextColor="@color/White"
+                    app:headerBackgroundColor="@color/White"
+                    app:headerPadding="@dimen/_12dp"
+                    app:headerTextColor="@color/sub_sentence_color"
+                    app:hourHeight="@dimen/_35sdp"
+                    app:hourSeparatorColor="@color/White"
+                    app:hourSeparatorStrokeWidth="@dimen/_5dp"
+                    app:numberOfVisibleDays="3"
+                    app:overlappingEventGap="@dimen/_2dp"
+                    app:showCompleteDay="false"
+                    app:showCurrentTimeFirst="true"
+                    app:showFirstDayOfWeekFirst="true"
+                    app:showHeaderBottomLine="true"
+                    app:showTimeColumnSeparator="true"
+                    app:singleDayHorizontalPadding="@dimen/_1dp"
+                    app:timeColumnBackgroundColor="@color/White"
+                    app:timeColumnPadding="@dimen/_8dp"
+                    app:timeColumnSeparatorStrokeWidth="@dimen/_2dp"
+                    app:timeColumnTextColor="@color/Gray"
+                    app:timeColumnTextSize="@dimen/_12sp"
+                    app:todayBackgroundColor="@color/daycolor"
+                    app:todayHeaderTextColor="@color/sub_sentence_color" />
+
+
+                <com.applandeo.materialcalendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:visibility="gone"
+                    app:abbreviationsBarColor="@color/White"
+                    app:abbreviationsLabelsColor="@color/sub_sentence_color"
+                    app:daysLabelsColor="@color/sub_sentence_color"
+                    app:eventsEnabled="true"
+                    app:forwardButtonSrc="@drawable/ic_baseline_arrow_forward_24"
+                    app:headerColor="@color/White"
+                    app:headerLabelColor="@color/sub_sentence_color"
+                    app:highlightedDaysLabelsColor="@color/light_blue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/calendarLL"
+                    app:previousButtonSrc="@drawable/ic_baseline_arrow_back_24"
+                    app:selectionLabelColor="@color/Red"
+                    app:todayLabelColor="@color/sub_sentence_color" />
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlService.app.utils.ClickHandler" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/passwordTagTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/please_register_yout_house_or_location_so_we_can_find_customers_that_are_near_to_you"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/mapFrame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/doneTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTagTV">
+
+            <fragment
+                android:id="@+id/mapV"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+           <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/markerIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_pin_red"
+                android:visibility="gone" />
+        </FrameLayout>
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/addressET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/White"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/address"
+            android:longClickable="false"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@id/passwordTagTV" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/codeET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/postal_code"
+            android:longClickable="false"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@id/addressET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/cityET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/city"
+            android:longClickable="false"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@id/codeET" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/doneTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="@drawable/mid_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/continu"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

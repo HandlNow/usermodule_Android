@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.handlUser.app.utils.Const" />
+
+        <variable
+            name="providerData"
+            type="com.handlUser.app.model.ProviderData" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/addRL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="@color/White"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userIV"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@mipmap/ic_default" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/nextIV"
+                android:layout_toEndOf="@+id/userIV"
+                android:fontFamily="@font/lato_semibold"
+                android:text="@{providerData.fullName}"
+                android:textColor="@color/sentence_color"
+                android:textSize="@dimen/_14ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ratingTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleTV"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/userIV"
+                android:drawableStart="@drawable/ic_star"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/nameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleTV"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/ratingTV"
+                android:maxLines="1"
+                android:scrollbars="vertical"
+                android:drawableStart="@drawable/ic_circle_24"
+                android:drawablePadding="@dimen/_4sdp"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/nextIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:text="@{@string/euro +providerData.providerService.get(0).price+ @string/per_hour}"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_11ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTV"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/userIV"
+                android:drawableStart="@mipmap/ic_car_gry"
+                android:drawablePadding="@dimen/_5sdp"
+                android:drawableTint="@color/sub_sentence_color"
+                android:text="@{providerData.isTranspotation == Const.TYPE_OFF ? @string/need_lift : @string/has_Car}"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_11ssp"
+                tools:targetApi="m" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/availableTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateTV"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/userIV"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/available_at"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_11ssp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/slotsRV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateTV"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_toEndOf="@+id/availableTV"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/adapter_slot_timing" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/serviceOneTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:background="@drawable/white_button"
+                android:elevation="@dimen/_3sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Detailed cleaning"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/_11ssp"
+                tools:targetApi="lollipop" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/serviceTwoTV"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/serviceOneTV"
+                android:background="@drawable/white_button"
+                android:elevation="@dimen/_3sdp"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/_5sdp"
+                android:text="Fast!"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/_11ssp"
+                tools:targetApi="lollipop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1dp"
+                android:layout_below="@+id/serviceOneTV"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/screen_bg" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+
+</layout>

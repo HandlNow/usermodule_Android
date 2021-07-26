@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/questionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_15sdp"
+            android:text="@string/how_many_room_do_you_need_professionally_disinfected"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commonRV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/termCB"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionTV"
+            tools:itemCount="2"
+            tools:listitem="@layout/adapter_service_carwash" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/termCB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:layout_constraintBottom_toTopOf="@+id/nextTV"
+            app:layout_constraintStart_toStartOf="@+id/nextTV" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/agreeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/remember_information_for_next_time"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintBottom_toBottomOf="@+id/termCB"
+            app:layout_constraintStart_toEndOf="@+id/termCB"
+            app:layout_constraintTop_toTopOf="@+id/termCB" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nextTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/next"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

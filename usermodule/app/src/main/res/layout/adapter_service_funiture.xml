@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/screen_bg">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideG"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/quesTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:text="Sofa"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintBottom_toBottomOf="@+id/ansTV"
+            app:layout_constraintEnd_toStartOf="@+id/guideG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/howManyquesTV" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/ansCarCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/ansTV"
+            app:layout_constraintStart_toEndOf="@+id/guideG"
+            app:layout_constraintTop_toTopOf="@+id/howManyquesTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/howManyquesTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:text="@string/how_many"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintStart_toEndOf="@+id/ansCarCB"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ansTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/dark_blue_stroke"
+            android:drawableEnd="@drawable/ic_down_arrow"
+            android:drawablePadding="@dimen/_3sdp"
+            android:drawableTint="@color/sub_sentence_color"
+            android:fontFamily="@font/lato_regular"
+            android:paddingVertical="@dimen/_2sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:singleLine="true"
+            android:text="5"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toEndOf="@+id/howManyquesTV"
+            app:layout_constraintStart_toStartOf="@+id/howManyquesTV"
+            app:layout_constraintTop_toBottomOf="@+id/howManyquesTV"
+            tools:targetApi="m" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

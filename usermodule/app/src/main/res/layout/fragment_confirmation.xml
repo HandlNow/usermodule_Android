@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/descTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:drawableStart="@mipmap/ic_like"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="start|center"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:text="SI has approved"
+            android:textAllCaps="true"
+            android:textColor="@color/sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@string/your_new_appointment_is_new_booked_nedit_or_view_at_calendar_or_in_settings_my_appointments"
+            android:textColor="@color/sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/calendarTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/lato_semibold"
+
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@string/my_calendar"
+           app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+
+        <LinearLayout
+            android:id="@+id/calendarLL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_3sdp"
+            android:orientation="horizontal"
+            android:translationZ="@dimen/_5sdp"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendarTV"
+            tools:targetApi="lollipop">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dayViewTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:drawableStart="@mipmap/ic_today"
+                android:drawablePadding="@dimen/_5sdp"
+                android:elevation="@dimen/_4sdp"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:padding="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/day"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/weekViewTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:drawableStart="@mipmap/ic_week"
+                android:drawablePadding="@dimen/_5sdp"
+                android:elevation="@dimen/_4sdp"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:padding="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+
+                android:text="@string/week"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/monthViewTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:drawableStart="@mipmap/ic_month"
+                android:drawablePadding="@dimen/_5sdp"
+                android:elevation="@dimen/_4sdp"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:padding="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/month"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/White"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendarLL">
+
+
+            <com.alamkanak.weekview.WeekView
+                android:id="@+id/weekView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:adaptiveEventTextSize="true"
+                app:allDayEventTextSize="@dimen/_12sp"
+                app:columnGap="@dimen/_1sdp"
+                app:dayBackgroundColor="@color/daycolor"
+                app:daySeparatorColor="@color/White"
+                app:daySeparatorStrokeWidth="@dimen/_3dp"
+                app:defaultEventColor="@color/chart_color"
+                app:eventTextColor="@color/White"
+                app:headerBackgroundColor="@color/White"
+                app:headerPadding="@dimen/_12dp"
+                app:hourHeight="@dimen/_35sdp"
+                app:hourSeparatorColor="@color/White"
+                app:hourSeparatorStrokeWidth="@dimen/_3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLL"
+
+                app:numberOfVisibleDays="3"
+                app:overlappingEventGap="@dimen/_2dp"
+                app:showCompleteDay="false"
+                app:showCurrentTimeFirst="true"
+                app:showHeaderBottomLine="true"
+                app:showTimeColumnSeparator="true"
+                app:singleDayHorizontalPadding="@dimen/_8dp"
+                app:timeColumnBackgroundColor="@color/White"
+                app:timeColumnPadding="@dimen/_8dp"
+                app:timeColumnSeparatorStrokeWidth="@dimen/_1dp"
+                app:timeColumnTextColor="@color/Gray"
+                app:timeColumnTextSize="@dimen/_12sp"
+                app:todayBackgroundColor="@color/daycolor"
+            app:todayHeaderTextColor="@color/dark_blue" />
+
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/White"
+                app:abbreviationsBarColor="@color/White"
+                app:abbreviationsLabelsColor="@color/dark_blue"
+                app:daysLabelsColor="@color/dark_blue"
+                app:forwardButtonSrc="@drawable/ic_baseline_arrow_forward_24"
+                app:headerColor="@color/White"
+                app:headerLabelColor="@color/dark_blue"
+                app:highlightedDaysLabelsColor="@color/dark_blue"
+                app:previousButtonSrc="@drawable/ic_baseline_arrow_back_24"
+                app:selectionColor="@color/green_select"
+                app:todayLabelColor="@color/dark_blue" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

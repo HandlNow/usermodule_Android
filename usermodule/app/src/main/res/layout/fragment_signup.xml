@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+
+        <LinearLayout
+            android:id="@+id/logoIV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/dotsI"
+                layout="@layout/layout_dots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/firstNameET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/first_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textPersonName"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoIV" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/lastNameET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/last_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords|textPersonName"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/firstNameET"
+            app:layout_constraintStart_toStartOf="@+id/firstNameET"
+            app:layout_constraintTop_toBottomOf="@id/firstNameET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/emailET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/firstNameET"
+            app:layout_constraintStart_toStartOf="@+id/firstNameET"
+            app:layout_constraintTop_toBottomOf="@id/lastNameET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/passET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:nextFocusForward="@id/conPassET"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/firstNameET"
+            app:layout_constraintStart_toStartOf="@+id/firstNameET"
+            app:layout_constraintTop_toBottomOf="@id/emailET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/conPassET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/confirm_password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:nextFocusForward="@id/referalET"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/firstNameET"
+            app:layout_constraintStart_toStartOf="@+id/firstNameET"
+            app:layout_constraintTop_toBottomOf="@id/passET" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/referalET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/referal"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_hint_color"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/conPassET"
+            app:layout_constraintStart_toStartOf="@+id/conPassET"
+            app:layout_constraintTop_toBottomOf="@id/conPassET" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/conPasshowHideIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_visibility_off_24"
+            app:layout_constraintBottom_toBottomOf="@+id/conPassET"
+            app:layout_constraintEnd_toEndOf="@+id/emailET"
+            app:layout_constraintTop_toTopOf="@+id/conPassET" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/passshowHideIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_visibility_off_24"
+            app:layout_constraintBottom_toBottomOf="@+id/passET"
+            app:layout_constraintEnd_toEndOf="@+id/emailET"
+            app:layout_constraintTop_toTopOf="@+id/passET" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/termCB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:button="@drawable/login_check"
+            app:layout_constraintStart_toStartOf="@+id/passET"
+            app:layout_constraintTop_toBottomOf="@+id/referalET" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/agreeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_semibold"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/agree_terms"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/sentence_color"
+            app:layout_constraintBottom_toBottomOf="@+id/termCB"
+            app:layout_constraintStart_toEndOf="@+id/termCB"
+            app:layout_constraintTop_toTopOf="@+id/termCB" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/signupTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/signup"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/passET"
+            app:layout_constraintStart_toStartOf="@+id/passET"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

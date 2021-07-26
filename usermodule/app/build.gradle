@@ -1,0 +1,134 @@
+/*
+ * @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+ * @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+ * All Rights Reserved.
+ * Proprietary and confidential :  All information contained herein is, and remains
+ * the property of ToXSL Technologies Pvt. Ltd. and its partners.
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    buildFeatures {
+        dataBinding true
+    }
+    lintOptions {
+        checkReleaseBuilds true
+        abortOnError false
+    }
+    androidExtensions {
+        experimental = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    signingConfigs {
+        release {
+            storePassword 'com.handlUser.app'
+            keyAlias = 'com.handlUser.app'
+            keyPassword 'com.handlUser.app'
+            storeFile file('key.jks')
+        }
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.handlUser.app"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        resValue 'string', "google_api", GOOGLE_MAP_KEY
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def project = "handlUser"
+            def separator = "_"
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            def date = new Date()
+            def formattedDate = date.format('yyyy_MM_dd')
+            if (variant.buildType.name == "release") {
+                def newApkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + formattedDate + ".apk"
+                output.outputFileName = newApkName
+            }
+            if (variant.buildType.name == "debug") {
+                def newApkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + ".apk"
+                output.outputFileName = newApkName
+            }
+        }
+    }
+}
+
+ext {
+    playServicesVersion = '18.0.0'
+    playServicesAuthVersion = '19.0.0'
+    firebaseVersion = '22.0.0'
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation "com.google.firebase:firebase-messaging:$firebaseVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation "com.google.android.gms:play-services-auth:$playServicesAuthVersion"
+    implementation "com.google.android.gms:play-services-location:$playServicesVersion"
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.facebook.android:facebook-android-sdk:11.0.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation project(':restful-api-client')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation project(':image-picker-lib')
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'cz.msebera.android:httpclient:4.5.8'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.github.GoodieBag:Pinview:v1.4'
+    implementation 'com.hbb20:ccp:2.5.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.akexorcist:round-corner-progress-bar:2.1.2'
+    implementation 'com.github.transferwise:sequence-layout:1.1.1'
+    implementation 'com.github.thellmund.Android-Week-View:core:5.3.2'
+    implementation 'com.applandeo:material-calendar-view:1.8.0-rc01'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.3.1'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.26'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt'
+    implementation 'com.stripe:stripe-android:16.10.2'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation 'com.vanniktech:emoji-google:0.6.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.1.0'
+    implementation 'com.google.firebase:firebase-analytics:19.0.0'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+    implementation 'com.github.hsmnzaydn:imagezoom:1.3.0'
+    implementation 'com.github.thellmund.Android-Week-View:threetenabp:5.2.4'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.baoyachi:StepView:1.9'
+
+}
+
+apply plugin: 'com.google.gms.google-services'

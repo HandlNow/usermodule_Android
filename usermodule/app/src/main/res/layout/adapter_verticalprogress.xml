@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aboveCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleIV"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="@drawable/progress_rounded_button"
+                android:elevation="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintEnd_toStartOf="@+id/statusTV"
+                app:layout_constraintStart_toEndOf="@+id/rightTV"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="lollipop" />
+
+            <View
+                android:id="@+id/viewV"
+                android:layout_width="@dimen/_4sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@color/grey"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/circleIV"
+                app:layout_constraintStart_toStartOf="@+id/circleIV"
+                app:layout_constraintTop_toBottomOf="@+id/circleIV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/statusTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:gravity="end"
+                android:padding="@dimen/_5sdp"
+                android:text="You arrived\nat your clients place"
+                android:textColor="@color/dark_blue"
+                app:layout_constraintEnd_toStartOf="@+id/circleIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/circleIV" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rightTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:gravity="start"
+                android:padding="@dimen/_5sdp"
+                android:text="10:04 AM"
+                android:textColor="@color/verify_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/circleIV"
+                app:layout_constraintTop_toTopOf="@+id/circleIV" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

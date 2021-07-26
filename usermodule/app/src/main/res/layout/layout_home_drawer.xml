@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appbarTB"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@color/screen_bg"
+            app:cardElevation="@dimen/_4sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/White">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/menuIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    android:src="@mipmap/ic_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <FrameLayout
+                    android:id="@+id/notiIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/menuIV"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/notificationIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_not" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/countTV"
+                        android:layout_width="@dimen/_13sdp"
+                        android:layout_height="@dimen/_13sdp"
+                        android:layout_gravity="end"
+                        android:background="@drawable/background_red"
+                        android:fontFamily="@font/lato_regular"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_8ssp" />
+
+                </FrameLayout>
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/locIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@mipmap/ic_location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/searchCL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/notiIV"
+                    app:layout_constraintStart_toEndOf="@+id/locIV"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/currentTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center"
+                        android:gravity="start|center"
+                        android:text="@string/current_location"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_9ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/searchTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:text="@string/select_location"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/lato_semibold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/currentTV"
+                        app:layout_constraintTop_toTopOf="@+id/downIV"
+                        tools:targetApi="m" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/downIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:src="@drawable/ic_down_arrow"
+                        android:tint="@color/blue_color"
+                        app:layout_constraintStart_toEndOf="@+id/searchTV"
+                        app:layout_constraintTop_toBottomOf="@+id/currentTV" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>
+

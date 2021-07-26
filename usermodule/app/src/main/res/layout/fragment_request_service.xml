@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+        <import type="android.view.View" />
+
+        <import type="com.handlUser.app.utils.Const" />
+
+        <variable
+            name="providerData"
+            type="com.handlUser.app.model.ProviderData" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:text="@string/about_the_provider"
+                android:textColor="@color/sentence_color" />
+
+
+            <RelativeLayout
+                android:id="@+id/addRL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userIV"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/profie_img" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/userIV"
+                    android:fontFamily="@font/lato_semibold"
+                    android:text="@{providerData.fullName}"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ratingTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleTV"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/userIV"
+                    android:drawableStart="@drawable/ic_star"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/nameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ratingTV"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/userIV"
+                    android:maxLines="3"
+                    android:scrollbars="vertical"
+                    android:text="Speaks Greek, English and Chinese"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/nextIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleTV"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/ratingTV"
+                    android:text="@{@string/euro +providerData.providerService.get(0).price+ @string/per_hour}"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleTV"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/nextIV"
+                    android:drawableStart="@mipmap/ic_car_gry"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawableTint="@color/sub_sentence_color"
+                    android:text="@{providerData.isTranspotation == Const.TYPE_OFF ? @string/need_lift : @string/has_Car}"
+                    android:textColor="@color/sub_sentence_color"
+                    android:textSize="@dimen/_12ssp"
+                    tools:targetApi="m" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/serviceOneTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@drawable/white_button"
+                    android:elevation="@dimen/_3sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:text="Detailed Cleaning"
+                    android:textColor="@color/blue_color"
+                    android:textSize="@dimen/_11ssp"
+                    tools:targetApi="lollipop" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/serviceTwoTV"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/serviceOneTV"
+                    android:background="@drawable/white_button"
+                    android:elevation="@dimen/_3sdp"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Fast!"
+                    android:textColor="@color/blue_color"
+                    android:textSize="@dimen/_11ssp"
+                    tools:targetApi="lollipop" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seeMoreTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:text="@string/click_to_see_more"
+                android:textColor="@color/blue_color" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/screen_bg" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:text="@string/pick_up_day_date_month"
+                android:textColor="@color/sub_sentence_color" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/picdateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="@color/screen_bg"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:textColor="@color/sub_sentence_color"
+                tools:targetApi="m" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:text="@string/pick_up_a_time_slot"
+                android:textColor="@color/sub_sentence_color" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/slotsRV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/adapter_slots" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/locationTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:text="@string/pick_up_location"
+                android:textColor="@color/sub_sentence_color" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/pickTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/you_need_to_pick_your_driver_up_from"
+                android:textColor="@color/sub_sentence_color" />
+
+
+            <FrameLayout
+                android:id="@+id/mapFrame"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_5sdp">
+
+                <fragment
+                    android:id="@+id/mapV"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/markerIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@mipmap/ic_location"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@color/screen_bg" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:fontFamily="@font/lato_semibold"
+                android:gravity="center"
+                android:text="@string/review"
+                android:textColor="@color/sub_sentence_color" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLine"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateHeadTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/date"
+                    app:layout_constraintEnd_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@color/line"
+                    app:layout_constraintEnd_toEndOf="@id/guideLine"
+                    app:layout_constraintStart_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="@id/dateHeadTV" />
+
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@color/line"
+                    app:layout_constraintEnd_toEndOf="@id/guideLine"
+                    app:layout_constraintStart_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="@id/startHeadTV" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@color/line"
+                    app:layout_constraintEnd_toEndOf="@id/guideLine"
+                    app:layout_constraintStart_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="@id/estimateValueTV" />
+
+
+                <View
+                    android:id="@+id/line4"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@color/line"
+                    app:layout_constraintEnd_toEndOf="@id/guideLine"
+                    app:layout_constraintStart_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="@id/estimateCostValueTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/dateHeadTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startHeadTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/start_time"
+                    app:layout_constraintEnd_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/dateHeadTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@id/guideLine"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/estimated_duration"
+                    app:layout_constraintEnd_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/startHeadTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimateValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/startValueTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimateCostHeadTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/estimated_cost"
+                    app:layout_constraintEnd_toStartOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/estimateTV" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimateCostValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@id/guideLine"
+                    app:layout_constraintTop_toBottomOf="@id/estimateValueTV" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/requestTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/light_blue_button"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/request_service"
+                android:textColor="@color/White" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,121 @@
+<!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/textViewStyle</item>
+    </style>
+
+    <style name="shapeCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_5sdp</item>
+    </style>
+
+    <style name="textViewStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/sub_sentence_color</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+    </style>
+
+    <style name="AppThemeNoBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/dark_blue</item>
+        <item name="colorControlHighlight">@color/dark_blue</item>
+        <item name="colorControlNormal">@color/Gray</item>
+    </style>
+
+    <style name="smallRatingTheme" parent="Base.Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlActivated">@color/dark_blue</item>
+        <item name="colorControlHighlight">@color/dark_blue</item>
+        <item name="colorControlNormal">@color/Gray</item>
+        <item name="colorAccent">@color/dark_blue</item>
+        <item name="android:colorPressedHighlight">@color/dark_blue</item>
+        <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar.Small</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Button" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_16sp</item>
+        <item name="android:textColor">@color/White</item>
+    </style>
+
+    <style name="animateDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowAnimationStyle">@style/pause_dialog_animation</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
+    <style name="pause_dialog_animation">
+        <item name="android:windowEnterAnimation">@anim/popup_show</item>
+        <item name="android:windowExitAnimation">@anim/popup_hide</item>
+    </style>
+
+    <style name="Snackbar" />
+
+    <style name="Snackbar.Text.Action">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:background">@drawable/sb__btn_bg</item>
+    </style>
+
+    <style name="Snackbar.Text">
+        <item name="android:paddingBottom">@dimen/_15dp</item>
+        <item name="android:paddingLeft">@dimen/_25dp</item>
+        <item name="android:paddingTop">@dimen/_15dp</item>
+        <item name="android:paddingRight">@dimen/_25dp</item>
+        <item name="android:textSize">@dimen/_14sp</item>
+        <item name="android:textColor">@color/White</item>
+    </style>
+
+    <style name="AppTheme.CardTheme">
+        <item name="shouldShowPostalCode">false</item>
+        <item name="shouldRequirePostalCode">false</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textColorHint">@android:color/tab_indicator_text</item>
+    </style>
+
+    <style name="DialogTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="transparentDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowAnimationStyle">@style/pause_dialog_animation</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

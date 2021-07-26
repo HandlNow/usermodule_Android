@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlService.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+        <com.handlService.app.utils.CustomScrollView
+            android:id="@+id/scrollNSV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/doneTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aboveCL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/checkCB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:background="@android:color/transparent"
+                        android:button="@drawable/toggle_extra_check"
+                        android:gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/view1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/view1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/view1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/dark_blue"
+                        app:layout_constraintEnd_toStartOf="@+id/checkCB"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/grey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aboveCL" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/tranSCL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/textTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/how_far_will_you_travel_for_an_appointment"
+                        android:textColor="@color/sub_sentence_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/locationET"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@color/White"
+                        android:drawableEnd="@drawable/quantum_ic_search_grey600_24"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="@string/type_to_add_more_locations"
+                        android:imeOptions="actionDone"
+                        android:longClickable="false"
+                        android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                        android:padding="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textTV" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/searchRV"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:nestedScrollingEnabled="true"
+                        android:orientation="vertical"
+                        android:scrollbars="vertical"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/locationET"
+                        app:spanCount="3"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/adapter_transportation_location"
+                        tools:targetApi="lollipop" />
+
+
+                    <FrameLayout
+                        android:id="@+id/mapIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/searchRV">
+
+                        <fragment
+                            android:id="@+id/mapV"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/markerIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_pin_red"
+                            android:visibility="gone" />
+                    </FrameLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lessTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="1km"
+                        android:textColor="@color/sub_sentence_color"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mapIV"
+                        tools:ignore="RtlSymmetry" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/kmTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:text="1km"
+                        android:textColor="@color/sub_sentence_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lessTV" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/moreTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginVertical="@dimen/_15sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:text="140km"
+                        android:textColor="@color/sub_sentence_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mapIV"
+                        tools:ignore="RtlSymmetry" />
+
+
+                    <com.warkiz.widget.IndicatorSeekBar
+                        android:id="@+id/seekBarSB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:isb_indicator_color="@color/White"
+                        app:isb_indicator_text_color="@color/sub_sentence_color"
+                        app:isb_indicator_text_size="@dimen/_10ssp"
+                        app:isb_max="140"
+                        app:isb_min="1.0"
+                        app:isb_track_rounded_corners="true"
+                        app:isb_progress="1"
+                        app:isb_seek_smoothly="true"
+                        app:isb_show_indicator="circular_bubble"
+                        app:isb_thumb_color="@color/White"
+                        app:isb_thumb_size="@dimen/_20sdp"
+                        app:isb_track_background_color="@color/daycolor"
+                        app:isb_track_background_size="@dimen/_10sdp"
+                        app:isb_track_progress_color="@color/light_blue"
+                        app:isb_track_progress_size="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/moreTV"
+                        app:layout_constraintEnd_toStartOf="@+id/moreTV"
+                        app:layout_constraintStart_toEndOf="@+id/lessTV"
+                        app:layout_constraintTop_toTopOf="@+id/moreTV" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.handlService.app.utils.CustomScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/doneTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="@drawable/mid_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/save"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toTopOf="@id/confirnTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/confirnTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="@drawable/mid_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/condfirm"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

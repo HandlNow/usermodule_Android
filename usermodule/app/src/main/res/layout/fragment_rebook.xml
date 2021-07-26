@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/agreeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Jo mentoned that she ran out of time so the task was not complete.\nWhat do you want to do?"
+            android:textColor="@color/dark_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rebookTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:background="@drawable/light_blue_button"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Re-book Jo"
+            android:textColor="@color/White"
+            app:layout_constraintEnd_toEndOf="@+id/agreeTV"
+            app:layout_constraintStart_toStartOf="@+id/agreeTV"
+            app:layout_constraintTop_toBottomOf="@+id/agreeTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/notrebookTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/light_blue_button"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10sdp"
+            android:text="I will not re-book now"
+            android:textColor="@color/White"
+            app:layout_constraintEnd_toEndOf="@+id/agreeTV"
+            app:layout_constraintStart_toStartOf="@+id/agreeTV"
+            app:layout_constraintTop_toBottomOf="@+id/rebookTV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bookanotherTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/dark_blue_button"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/book_another_provider"
+            android:textColor="@color/White"
+            app:layout_constraintEnd_toEndOf="@+id/agreeTV"
+            app:layout_constraintStart_toStartOf="@+id/agreeTV"
+            app:layout_constraintTop_toBottomOf="@+id/notrebookTV" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

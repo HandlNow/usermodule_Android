@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handleClick"
+            type="com.handlUser.app.utils.ClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/appbarTB"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@color/screen_bg"
+            app:cardElevation="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarTB"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/White">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@mipmap/ic_back_arw"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawableTint="@color/White"
+                    android:fontFamily="@font/lato_semibold"
+                    android:gravity="center|start"
+                    android:text="@string/verification"
+                    android:textColor="@color/dark_blue_color"
+                    android:textSize="@dimen/_12ssp"
+                    tools:targetApi="m" />
+            </androidx.appcompat.widget.Toolbar>
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/logoIV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbarTB">
+
+            <include
+                android:id="@+id/dotsI"
+                layout="@layout/layout_dots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/passwordTagTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/please_enter_you_mobile_phone_to_complete_registration"
+            android:textColor="@color/sub_sentence_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoIV" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/phoneET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toEndOf="@+id/codeET"
+            app:layout_constraintTop_toBottomOf="@id/passwordTagTV" />
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/codeET"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@color/White"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:singleLine="true"
+            app:ccp_contentColor="@color/Black"
+            app:ccp_defaultPhoneCode="357"
+            app:ccp_showArrow="true"
+            app:ccp_showFlag="true"
+            app:ccp_showNameCode="false"
+            app:ccp_showPhoneCode="true"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneET"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toTopOf="@+id/phoneET" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/registerTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/register"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV" />
+
+        <RelativeLayout
+            android:id="@+id/termCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@+id/phoneET">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/termsAgreeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/by_continuing_you_agree_to_our"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/termsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/termsAgreeTV"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:text="@string/t_cs"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/termsTV"
+                android:text="."
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/privacyCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@+id/termCL">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/privacyTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/please_also_check_our"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/policyTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/privacyTV"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/policyTV"
+                android:text="."
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:lineSpacingExtra="@dimen/_4sdp"
+            android:text="@string/we_use_data_to_offer_you_a_person"
+            android:textColor="@color/sub_sentence_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/privacyCL" />
+
+        <RelativeLayout
+            android:id="@+id/seehereCL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTagTV"
+            app:layout_constraintStart_toStartOf="@+id/passwordTagTV"
+            app:layout_constraintTop_toBottomOf="@+id/textTV">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/inforTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more_infor"
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hereTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/inforTV"
+                android:onClick="@{(View)->handleClick.onHandleClick(View)}"
+                android:text="@string/see_here"
+                android:textColor="@color/blue_color"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/hereTV"
+                android:text="."
+                android:textColor="@color/sub_sentence_color"
+                android:textSize="@dimen/_12ssp" />
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/screen_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linearLL"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rect_button"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textTV"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_1sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_blue_button"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text=""
+                android:textColor="@color/sub_sentence_color" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/descTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text=""
+                android:textColor="@color/sub_sentence_color" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/paymentTypeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text=""
+                android:textColor="@color/sub_sentence_color" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/chargesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text=""
+                android:textColor="@color/sub_sentence_color" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noFeeTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text=""
+                android:textColor="@color/light_blue" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

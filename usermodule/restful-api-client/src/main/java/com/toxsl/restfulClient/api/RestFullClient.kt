@@ -42,11 +42,11 @@ class RestFullClient private constructor(context: Context) {
     fun getRetrofitInstance(BASE_URL: String?): Retrofit {
         this.BASE_URL = BASE_URL
         apiInstance = Retrofit.Builder()
-                .baseUrl(BASE_URL!!)
-                .client(UnsafeOkHttpClient().getUnsafeOkHttpClient(mContext))
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .baseUrl(BASE_URL!!)
+            .client(UnsafeOkHttpClient().getUnsafeOkHttpClient(mContext))
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
         return apiInstance!!
     }
 
@@ -90,11 +90,11 @@ class RestFullClient private constructor(context: Context) {
             if (jsonObject.has("maintainence")) {
                 if (jsonObject.getString("maintainence") != "null") {
                     mSyncEventListener.onSyncFailure(
-                            0,
-                            AppInMaintenance(jsonObject.getString("maintainence")),
-                            null,
-                            null,
-                            null
+                        0,
+                        AppInMaintenance(jsonObject.getString("maintainence")),
+                        null,
+                        null,
+                        null
                     )
                     return true
                 }
@@ -116,11 +116,11 @@ class RestFullClient private constructor(context: Context) {
                 val currentcal = Calendar.getInstance()
                 if (currentcal.after(cal)) {
                     mSyncEventListener.onSyncFailure(
-                            0,
-                            AppExpiredError(jsonObject.getString("datecheck")),
-                            null,
-                            null,
-                            null
+                        0,
+                        AppExpiredError(jsonObject.getString("datecheck")),
+                        null,
+                        null,
+                        null
                     )
 
                     return true

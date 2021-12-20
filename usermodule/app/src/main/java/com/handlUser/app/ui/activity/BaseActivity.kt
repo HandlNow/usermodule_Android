@@ -23,6 +23,8 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.os.*
 import android.provider.Settings
@@ -56,7 +58,6 @@ import com.google.android.libraries.places.api.Places
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
-import com.handlUser.app.BuildConfig
 import com.handlUser.app.R
 import com.handlUser.app.databinding.DialogLocationTurnonBinding
 import com.handlUser.app.model.AddressData
@@ -69,6 +70,7 @@ import com.handlUser.app.ui.snackBar.SnackbarManager
 import com.handlUser.app.ui.snackBar.SnackbarType
 import com.handlUser.app.utils.*
 import com.jakewharton.threetenabp.AndroidThreeTen
+import com.toxsl.restfulClient.BuildConfig
 import com.toxsl.restfulClient.api.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -112,12 +114,27 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
         get() = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
 
     val isNetworkAvailable: Boolean
+        @SuppressLint("MissingPermission")
         get() {
-            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager
-                    .activeNetworkInfo
-            return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting
+            val connectivityManager =
+                applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+
+                val nw = connectivityManager.activeNetwork ?: return false
+                val actNw = connectivityManager.getNetworkCapabilities(nw) ?: return false
+
+                return when {
+                    actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                    actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                    //for other device how are able to connect with Ethernet
+                    actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+                    //for check internet over Bluetooth
+                    actNw.hasTransport(NetworkCapabilities.TRANSPORT_BLUETOOTH) -> true
+                    else -> false
+                }
+
         }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,17 +170,7 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
     }
 
 
-    fun initFCM() {
-        if (checkPlayServices()) {
-            if (restFullClient?.getLoginStatus() != null) {
-                checkApi()
-            } else {
-                gotoLoginSignUpActivity()
-            }
-        }
 
-
-    }
 
     private fun getToken() {
         FirebaseMessaging.getInstance().token
@@ -192,15 +199,6 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
         }
     }
 
-    private fun checkApi() {
-        val params = Api3Params()
-        params.put("DeviceDetail[device_token]", getDeviceToken())
-        params.put("DeviceDetail[device_type]", Const.ANDROID)
-        params.put("DeviceDetail[device_name]", Build.MODEL)
-        val call = api!!.apiCheck(params.getServerHashMap())
-        restFullClient?.sendRequest(call, this)
-
-    }
 
 
     fun gotoLoginSignUpActivity() {
@@ -297,7 +295,7 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
             cal.time = serverDate
             val currentcal = Calendar.getInstance()
             if (currentcal.after(cal)) {
-                val builder = androidx.appcompat.app.AlertDialog.Builder(this, R.style.animateDialog)
+                val builder = AlertDialog.Builder(this, R.style.animateDialog)
                 builder.setMessage(getString(R.string.contact_company_info))
                 builder.setTitle(getString(R.string.demo_expired))
                 builder.setCancelable(false)
@@ -328,21 +326,7 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
     }
 
 
-    private fun checkPlayServices(): Boolean {
-        val apiAvailability = GoogleApiAvailability.getInstance()
-        val resultCode = apiAvailability.isGooglePlayServicesAvailable(this)
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (apiAvailability.isUserResolvableError(resultCode)) {
-                apiAvailability.getErrorDialog(this, resultCode, Const.PLAY_SERVICES_RESOLUTION_REQUEST)
-                        .show()
-            } else {
-                log(getString(R.string.this_device_is_not_supported))
-                finish()
-            }
-            return false
-        }
-        return true
-    }
+
 
     fun checkPermissions(perms: Array<String>, requestCode: Int, permCallback: PermCallback): Boolean {
         this.permCallback = permCallback
@@ -367,6 +351,7 @@ open class BaseActivity : AppCompatActivity(), SyncEventListener, View.OnClickLi
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         var permGrantedBool = false
         when (requestCode) {
             Const.PERMISSION_ID -> {
